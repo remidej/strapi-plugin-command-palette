@@ -1,0 +1,4 @@
+{
+  "plugin.name": "Command Palette",
+  "page.instructions": "Hit command+k from anywhere in Strapi to get the Command Palette."
+}
