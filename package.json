@@ -8,8 +8,7 @@
     "kind": "plugin"
   },
   "dependencies": {
-    "hotkeys-js": "^3.8.7",
-    "react-hotkeys-hook": "^3.4.4"
+    "cmdk": "^0.1.18"
   },
   "author": {
     "name": "A Strapi developer"

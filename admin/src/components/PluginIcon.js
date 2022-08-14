@@ -4,28 +4,31 @@
  *
  */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Puzzle from "@strapi/icons/Puzzle";
-import { useHotkeys } from "react-hotkeys-hook";
-import Modal from "./Modal";
+import CommandMenu from "./CommandMenu";
 
 const PluginIcon = () => {
-  const [modalIsShown, setModalIsShown] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   // Open modal on keyboard shortcut
-  useHotkeys(
-    "command+k,ctrl+k",
-    (event, handler) => {
-      event.preventDefault();
-      setModalIsShown(true);
-    },
-    { enableOnTags: ["INPUT"] }
-  );
+  useEffect(() => {
+    const down = (e) => {
+      console.log('down', e.key, e.metaKey);
+      if (e.key === 'k' && e.metaKey) {
+        console.log('toggle!')
+        setModalIsOpen((open) => !open)
+      }
+    }
+
+    document.addEventListener('keydown', down)
+    return () => document.removeEventListener('keydown', down)
+  }, [])
 
   return (
     <>
       <Puzzle />
-      {modalIsShown && <Modal handleClose={() => setModalIsShown(false)} />}
+      <CommandMenu open={open} onOpenChange={setModalIsOpen} />
     </>
   );
 };

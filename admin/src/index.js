@@ -1,5 +1,4 @@
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
-import hotkeys from 'hotkeys-js';
 import pluginPkg from '../../package.json';
 import pluginId from './pluginId';
 import Initializer from './components/Initializer';
